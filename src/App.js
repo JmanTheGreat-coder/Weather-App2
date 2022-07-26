@@ -1,15 +1,16 @@
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap.min.js";
-import { BsSun } from 'react-icons/bs';
-import { BsSunset } from 'react-icons/bs';
-import { BsSunrise } from 'react-icons/bs';
-import { BsWind } from 'react-icons/bs';
-import { BsLifePreserver } from 'react-icons/bs';
-import { BsBroadcast } from 'react-icons/bs';
-import { BsDroplet } from 'react-icons/bs';
-import { BsFillMoonStarsFill } from 'react-icons/bs';
-import { BsFillEyeFill } from 'react-icons/bs';
+import { BsSun } from "react-icons/bs";
+import { BsSunset } from "react-icons/bs";
+import { BsSunrise } from "react-icons/bs";
+import { BsWind } from "react-icons/bs";
+import { BsLifePreserver } from "react-icons/bs";
+import { BsBroadcast } from "react-icons/bs";
+import { BsDroplet } from "react-icons/bs";
+import { BsFillMoonStarsFill } from "react-icons/bs";
+import { BsFillEyeFill } from "react-icons/bs";
 import React, { useState } from "react";
+import Sun from "./resources/icon_01d_n.png";
 import axios from "axios";
 import "./App.css";
 
@@ -34,7 +35,12 @@ function App() {
               <div class="card-body">
                 <BsSun />
                 <BsFillMoonStarsFill />
-                <input type="text" id="fname" name="fname"></input>
+                <input
+                  type="text"
+                  id="fname"
+                  name="fname"
+                  placeholder="Enter your location"
+                ></input>
               </div>
             </div>
           </div>
@@ -42,12 +48,38 @@ function App() {
         <div class="row">
           <div class="col-lg-6 col-md-6 col-sm-12 col-12">
             <div class="card">
-              <div class="card-body">This is some text within a card body.</div>
+              <div class="card-body">
+                <img src={Sun} className="icon photo " />
+                <h1>65</h1>
+                <label>Feels like: 68°</label>
+                <label>clear sky</label>
+              </div>
             </div>
           </div>
           <div class="col-lg-6 col-md-6 col-sm-12 col-12">
             <div class="card">
-              <div class="card-body">This is some text within a card body.</div>
+              <div class="card-body">
+                <div className="current-weather-details-grid-item">
+                  <label>Rain:</label>
+                  <label>0.00%</label>
+                </div>
+                <div className="current-weather-details-grid-item">
+                  <label>Humidity:</label>
+                  <label>50%</label>
+                </div>
+                <div className="current-weather-details-grid-item">
+                  <label>Wind speed:</label>
+                  <label>8 m/s</label>
+                </div>
+                <div className="current-weather-details-grid-item">
+                  <label>Pressure:</label>
+                  <label>1020hPa</label>
+                </div>
+                <div className="current-weather-details-grid-item">
+                  <label>Wind speed:</label>
+                  <label>10 km</label>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -59,77 +91,120 @@ function App() {
             </div>
           </div>
         </div>
-        <div class='row'>
-        <div class="card-group card-group-scroll">
-        <div class="card">
-            <img class="card-img-top" data-src="holder.js/100px180/" />
-            <div class="card-body">
+        <div class="row">
+          <div class="card-group card-group-scroll card">
+            <div class="card">
+              <img class="card-img-top" data-src="holder.js/100px180/" />
+              <div class="card-body">
                 <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                <p class="card-text">
+                  This is a wider card with supporting text below as a natural
+                  lead-in to additional content. This content is a little bit
+                  longer.
+                </p>
+                <p class="card-text">
+                  <small class="text-muted">Last updated 3 mins ago</small>
+                </p>
+              </div>
             </div>
-        </div>
-        <div class="card">
-            <img class="card-img-top" data-src="holder.js/100px180/" />
-            <div class="card-body">
+            <div class="card">
+              <img class="card-img-top" data-src="holder.js/100px180/" />
+              <div class="card-body">
                 <h5 class="card-title">Card title</h5>
-                <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                <p class="card-text">
+                  This card has supporting text below as a natural lead-in to
+                  additional content.
+                </p>
+                <p class="card-text">
+                  <small class="text-muted">Last updated 3 mins ago</small>
+                </p>
+              </div>
             </div>
-        </div>
-        <div class="card">
-            <img class="card-img-top" data-src="holder.js/100px180/" />
-            <div class="card-body">
+            <div class="card">
+              <img class="card-img-top" data-src="holder.js/100px180/" />
+              <div class="card-body">
                 <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                <p class="card-text">
+                  This is a wider card with supporting text below as a natural
+                  lead-in to additional content. This card has even longer
+                  content than the first to show that equal height action.
+                </p>
+                <p class="card-text">
+                  <small class="text-muted">Last updated 3 mins ago</small>
+                </p>
+              </div>
             </div>
-        </div>
-        <div class="card">
-            <img class="card-img-top" data-src="holder.js/100px180/" />
-            <div class="card-body">
+            <div class="card">
+              <img class="card-img-top" data-src="holder.js/100px180/" />
+              <div class="card-body">
                 <h5 class="card-title">Card title</h5>
-                <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                <p class="card-text">
+                  This card has supporting text below as a natural lead-in to
+                  additional content.
+                </p>
+                <p class="card-text">
+                  <small class="text-muted">Last updated 3 mins ago</small>
+                </p>
+              </div>
             </div>
+          </div>
         </div>
-    </div>
-        </div>
+        <h1>Today's Highlights</h1>
         <div class="row">
           <div class="col-lg-4 col-md-4 col-sm-6 col-6">
             <div class="card">
-              <div class="card-body"><BsBroadcast /></div>
+              <div class="card-body">
+                <span class="type-info">UV Index</span>
+                <BsBroadcast />
+              </div>
             </div>
           </div>
           <div class="col-lg-4 col-md-4 col-sm-6 col-6">
             <div class="card">
-              <div class="card-body"><BsWind /></div>
+              <div class="card-body">
+              <span class="type-info">Wind Status</span>
+                <BsWind />
+              </div>
             </div>
           </div>
           <div class="col-lg-4 col-md-4 col-sm-6 col-6">
             <div class="card">
-              <div class="card-body"><BsSunrise /><BsSunset /></div>
+              <div class="card-body">
+              <span class="type-info">Sunrise & Sunset
+</span>
+                <BsSunrise />
+                <BsSunset />
+              </div>
             </div>
           </div>
           <div class="col-lg-4 col-md-4 col-sm-6 col-6">
             <div class="card">
-              <div class="card-body"><BsDroplet /></div>
+              <div class="card-body">
+              <span class="type-info">Humidity
+</span>
+                <BsDroplet />
+              </div>
             </div>
           </div>
           <div class="col-lg-4 col-md-4 col-sm-6 col-6">
             <div class="card">
-              <div class="card-body"><BsLifePreserver /></div>
+              <div class="card-body">
+              <span class="type-info">Pressure</span>
+                <BsLifePreserver />
+              </div>
             </div>
           </div>
           <div class="col-lg-4 col-md-4 col-sm-6 col-6">
             <div class="card">
-              <div class="card-body"><BsFillEyeFill /></div>
+              <div class="card-body">
+              <span class="type-info">Visibility
+</span>
+                <BsFillEyeFill />
+              </div>
             </div>
           </div>
-
         </div>
       </div>
-
     </div>
   );
 }
