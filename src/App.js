@@ -23,15 +23,15 @@ function App() {
         <div class="row">
           <div class="col-lg-6 col-md-6 col-sm-6 col-6">
             <div class="card">
-              <div class="card-body">
-                <h2>Miami</h2>
+              <div class="card-body current-weather">
+                <h1>Miami</h1>
                 <h6>Florida</h6>
                 <p>Thursday, 12 May 2022 03:16</p>
               </div>
             </div>
           </div>
           <div class="col-lg-6 col-md-6 col-sm-6 col-6">
-            <div class="card">
+            <div class="card h-100">
               <div class="card-body">
                 <BsSun />
                 <BsFillMoonStarsFill />
@@ -57,21 +57,24 @@ function App() {
             </div>
           </div>
           <div class="col-lg-6 col-md-6 col-sm-12 col-12">
-            <div class="card">
+            <div class="card h-100">
               <div class="card-body">
-                <div className="current-weather-details-grid-item">
-                  <label>Rain:</label>
-                  <label>0.00%</label>
+                <div class='current-weather'>
+                  <div className="current-weather-details-grid-item">
+                    <label>Rain:</label>
+                    <label>0.00%</label>
+                  </div>
+                  <div className="current-weather-details-grid-item">
+                    <label>Humidity:</label>
+                    <label>50%</label>
+                  </div>
+                  <div className="current-weather-details-grid-item">
+                    <label>Wind speed:</label>
+                    <label>8 m/s</label>
+                  </div>
                 </div>
-                <div className="current-weather-details-grid-item">
-                  <label>Humidity:</label>
-                  <label>50%</label>
-                </div>
-                <div className="current-weather-details-grid-item">
-                  <label>Wind speed:</label>
-                  <label>8 m/s</label>
-                </div>
-                <div className="current-weather-details-grid-item">
+                <div class='current-weather2'>
+                                  <div className="current-weather-details-grid-item">
                   <label>Pressure:</label>
                   <label>1020hPa</label>
                 </div>
@@ -79,6 +82,8 @@ function App() {
                   <label>Wind speed:</label>
                   <label>10 km</label>
                 </div>
+                </div>
+
               </div>
             </div>
           </div>
@@ -87,20 +92,58 @@ function App() {
         <div class="row">
           <div class="col-lg-12 col-md-12 col-sm-12 col-12">
             <div class="card">
-              <div class="card-body">This is some text within a card body.</div>
+              <div class="card-body">
+                <h2>Today</h2>
+                <h2>Week</h2>
+              </div>
             </div>
           </div>
         </div>
         <div class="row">
-          <div class="card-group card-group-scroll card">
+          <div class="card-group card-group-scroll card border-0">
+            <div class="card">
+              <img class="card-img-top" data-src="holder.js/100px180/" />
+              <div class="card-body">
+                <h5 class="card-title">Thu</h5>
+                <img src={Sun} className="icon photo " />
+                <p class="card-text">
+                  <small class="text-muted">59°F / 83°F</small>
+                </p>
+              </div>
+            </div>
             <div class="card">
               <img class="card-img-top" data-src="holder.js/100px180/" />
               <div class="card-body">
                 <h5 class="card-title">Card title</h5>
                 <p class="card-text">
-                  This is a wider card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
+                  This card has supporting text below as a natural lead-in to
+                  additional content.
+                </p>
+                <p class="card-text">
+                  <small class="text-muted">Last updated 3 mins ago</small>
+                </p>
+              </div>
+            </div>
+            <div class="card">
+              <img class="card-img-top" data-src="holder.js/100px180/" />
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">
+                  This card has supporting text below as a natural lead-in to
+                  additional content.
+                </p>
+                <p class="card-text">
+                  <small class="text-muted">Last updated 3 mins ago</small>
+                </p>
+              </div>
+            </div>
+            <div class="card">
+              <img class="card-img-top" data-src="holder.js/100px180/" />
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">
+                  This card has supporting text below as a natural lead-in to
+                  additional content.
                 </p>
                 <p class="card-text">
                   <small class="text-muted">Last updated 3 mins ago</small>
@@ -149,6 +192,7 @@ function App() {
             </div>
           </div>
         </div>
+        
         <h1>Today's Highlights</h1>
         <div class="row">
           <div class="col-lg-4 col-md-4 col-sm-6 col-6">

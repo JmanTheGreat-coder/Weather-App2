@@ -56,3 +56,11 @@
   width: 120px;
   
 }
+
+.current-weather {
+  text-align: left;
+}
+
+.current-weather2 {
+  text-align: right;
+}
