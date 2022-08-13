@@ -19,6 +19,8 @@ function App() {
   const [weather, setWeather] = useState(null);
   const [units, setUnits] = useState("");
   const [darkMode, setDarkMode] = useState(false);
+  const [color, setColor] = useState('white');
+
 
   const convertF = (x) => {
     return convertC(x) * 1.8 + 32;
@@ -46,18 +48,19 @@ function App() {
   };
   console.log(enterKeyPressed);
 
+
   return (
-    <div className="App">
+    <div className='App'>
       {weather && (
-        <div class={darkMode ? "dark-mode" : "light-mode"}>
-          <div class="container">
+        <div className={(typeof weather.temp != "undefined") ? ((convertF(weather.temp) > 70) ? 'app warm' : 'app') : 'app'}>
+          <div class="container" style={{ background: darkMode ? "#1a1919" : "white" }}>
             <div class="row">
-              <div class="col-lg-3 col-md-6 col-sm-6 col-6 mb-4">
+              <div class="col-lg-3 col-md-6 col-sm-6 col-6 mb-4 mt-4">
                 <div
                   class="card h-100 border-0"
                   style={{ background: darkMode ? "#1a1919" : "white" }}
                 >
-                  <div class="card-body current-weather">
+                  <div class="card-body ">
                     <h1>{`${weather.name}`}</h1>
                     <h6>{weather.country}</h6>
                     <p>
@@ -73,13 +76,13 @@ function App() {
                   </div>
                 </div>
               </div>
-              <div class="col-lg-3 col-md-6 col-sm-6 col-6 mb-4">
+              <div class="col-lg-3 col-md-6 col-sm-6 col-6 mb-4 mt-4">
                 <div
                   class="card h-100 border-0"
                   style={{ background: darkMode ? "#1a1919" : "white" }}
                 >
-                  <div class="card-body current-weather">
-                    <div class="current-weather2">
+                  <div class="card-body">
+                    <div class="">
                       <h1>
                         {units === "metric"
                           ? convertF(weather.temp).toFixed(0)
@@ -99,7 +102,7 @@ function App() {
                   </div>
                 </div>
               </div>
-              <div class="col-lg-3 col-md-6 col-sm-6 col-6 mb-4">
+              <div class="col-lg-3 col-md-6 col-sm-6 col-6 mb-4 mt-4">
                 <div
                   class="card h-100 border-0"
                   style={{ background: darkMode ? "#1a1919" : "white" }}
@@ -114,28 +117,33 @@ function App() {
                 </div>
               </div>
 
-              <div class="col-lg-3 col-md-6 col-sm-6 col-6 mb-4">
+              <div class="col-lg-3 col-md-6 col-sm-6 col-6 mb-4 mt-4">
                 <div
-                  class="card h-100 border-0"
+                  class="card h-100 border-0 "
                   style={{ background: darkMode ? "#1a1919" : "white" }}
                 >
                   <div class="card-body">
-                    <div class="col-6 current-weather2">
-                      <span
+                    <div class="row">
+                      <div class="col-6">
+                      <div class="">
+                      <h4
                         class={` ${
                           units === "imperial" ? "units__active" : ""
                         }`}
                         onClick={() => setUnits("imperial")}
                       >
                         °C
-                      </span>
-                      <span
+                      </h4>
+                      <h4
                         class={` ${units === " metric" ? "units__active" : ""}`}
                         onClick={() => setUnits("metric")}
                       >
                         °F
-                      </span>
-                      <div className="toggle-theme col-6">
+                      </h4>
+                    </div>
+                      </div>
+                      <div class="col-6">
+                      <div className="toggle-theme">
                         <input
                           type="checkbox"
                           onChange={() => setDarkMode(!darkMode)}
@@ -152,8 +160,8 @@ function App() {
                           <div className="ball"></div>
                         </label>
                       </div>
+                      </div>
                     </div>
-
                     <input
                       onKeyDown={enterKeyPressed}
                       class="location"
@@ -176,8 +184,8 @@ function App() {
             </div>
 
             <div class="row">
-              <div class="col-lg-4 col-md-6 col-sm-6 col-6">
-                <div class="card">
+              <div class="col-lg-4 col-md-6 col-sm-6 col-6 mb-4">
+                <div class="card h-100" style={{ shadow: darkMode ? false : "0 4px 2px -2px gray" }}>
                   <div class="card-body box_info">
                     <span class="type-info">UV Index</span>
                     <div class="row">
@@ -189,8 +197,8 @@ function App() {
                   </div>
                 </div>
               </div>
-              <div class="col-lg-4 col-md-6 col-sm-6 col-6">
-                <div class="card">
+              <div class="col-lg-4 col-md-6 col-sm-6 col-6 mb-4">
+                <div class="card h-100">
                   <div class="card-body box_info">
                     <span class="type-info">Wind Status</span>
                     <div class="row">
@@ -202,8 +210,8 @@ function App() {
                   </div>
                 </div>
               </div>
-              <div class="col-lg-4 col-md-6 col-sm-6 col-6">
-                <div class="card ">
+              <div class="col-lg-4 col-md-6 col-sm-6 col-6 mb-4">
+                <div class="card h-100">
                   <div class="card-body box_info">
                     <span class="type-info">Sunrise & Sunset</span>
                     <div class="row">
@@ -221,8 +229,8 @@ function App() {
                   </div>
                 </div>
               </div>
-              <div class="col-lg-4 col-md-6 col-sm-6 col-6">
-                <div class="card">
+              <div class="col-lg-4 col-md-6 col-sm-6 col-6 mb-4">
+                <div class="card h-100">
                   <div class="card-body box_info">
                     <span class="type-info">Humidity</span>
                     <div class="row">
@@ -234,8 +242,8 @@ function App() {
                   </div>
                 </div>
               </div>
-              <div class="col-lg-4 col-md-6 col-sm-6 col-6">
-                <div class="card">
+              <div class="col-lg-4 col-md-6 col-sm-6 col-6 mb-4">
+                <div class="card h-100">
                   <div class="card-body box_info">
                     <span class="type-info">Pressure</span>
                     <div class="row">
@@ -247,8 +255,8 @@ function App() {
                   </div>
                 </div>
               </div>
-              <div class="col-lg-4 col-md-6 col-sm-6 col-6">
-                <div class="card">
+              <div class="col-lg-4 col-md-6 col-sm-6 col-6 mb-4">
+                <div class="card h-100">
                   <div class="card-body box_info">
                     <span class="type-info">Visibility</span>
                     <div class="row">

@@ -91,6 +91,9 @@
   opacity: 0;
   position: absolute;
 }
+.location{
+  border-radius: 50px;
+}
 
 .label {
   background-color: #111;
@@ -117,14 +120,29 @@
   transform: translateX(0px);
   transition: transform 0.2s linear;
 }
+.app {
+  background-image: url('./assets/cold-bg.jpg');
+  background-size: cover;
+  background-position: bottom;
+  transition: 0.4 ease;
+}
+
+.app.warm {
+  background-image: url('./assets/warm-bg.jpg');
+}
 
 .checkbox:checked + .label .ball {
   transform: translateX(24px);
+}
+
+.h-100{
+ box-shadow: 0 10px 10px;
 }
 .sun{
   padding-top:2px;
 }
 .toggle-theme{
+  
   @media(max-width:768px){
       position: absolute;
       top: 10px;
