@@ -10,13 +10,14 @@ import { BsDroplet } from "react-icons/bs";
 import { BsFillMoonStarsFill } from "react-icons/bs";
 import { BsFillEyeFill } from "react-icons/bs";
 import React, { useEffect, useState } from "react";
-import "./resources/icon_01d_n.png";
 import { getFormattedWeatherData } from "./weatherService.js";
+import { getFormattedWeatherData2 } from "./weatherService2.js";
 import "./App.css";
 
 function App() {
   const [city, setCity] = useState("new york");
   const [weather, setWeather] = useState(null);
+  const [forecast, setForecast] = useState(null);
   const [units, setUnits] = useState("");
   const [darkMode, setDarkMode] = useState(false);
   const [color, setColor] = useState('white');
@@ -40,13 +41,23 @@ function App() {
     fetchWeatherData(city);
   }, [city]);
 
+
+  useEffect(() => {
+    const fetchWeatherData2 = async () => {
+      const data = await getFormattedWeatherData2(city);
+      setForecast(data)
+    };
+    console.log(fetchWeatherData2)
+    fetchWeatherData2(city);
+  }, [city]);
+ 
+
   const enterKeyPressed = (e) => {
     if (e.keyCode === 13) {
       setCity(e.currentTarget.value);
       e.currentTarget.blur();
     }
   };
-  console.log(enterKeyPressed);
 
 
   return (
@@ -170,101 +181,6 @@ function App() {
                       name="fname"
                       placeholder="Enter your location"
                     ></input>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row ">
-              <div
-                class="card card-body border-0"
-                style={{ background: darkMode ? "#1a1919" : "white" }}
-              >
-                <h1>Today's Highlights</h1>
-              </div>
-            </div>
-
-            <div class="row">
-              <div class="col-lg-4 col-md-6 col-sm-6 col-6 mb-4">
-                <div class="card h-100" style={{ shadow: darkMode ? false : "0 4px 2px -2px gray" }}>
-                  <div class="card-body box_info">
-                    <span class="type-info">UV Index</span>
-                    <div class="row">
-                      <div className="current-weather-details-grid-item col-6">
-                        <BsBroadcast size="3rem" />
-                        <label>{weather.clouds.all}</label>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4 col-md-6 col-sm-6 col-6 mb-4">
-                <div class="card h-100">
-                  <div class="card-body box_info">
-                    <span class="type-info">Wind Status</span>
-                    <div class="row">
-                      <div className="current-weather-details-grid-item col-6">
-                        <BsWind size="3rem" />
-                        <label>{weather.speed}</label>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4 col-md-6 col-sm-6 col-6 mb-4">
-                <div class="card h-100">
-                  <div class="card-body box_info">
-                    <span class="type-info">Sunrise & Sunset</span>
-                    <div class="row">
-                      <div className="current-weather-details-grid-item ">
-                        <BsSunrise size="1rem" />
-                        <label>{weather.sunset}</label>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div className="current-weather-details-grid-item ">
-                        <BsSunset size="1rem" />
-                        <label>{weather.sunrise}</label>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4 col-md-6 col-sm-6 col-6 mb-4">
-                <div class="card h-100">
-                  <div class="card-body box_info">
-                    <span class="type-info">Humidity</span>
-                    <div class="row">
-                      <div className="current-weather-details-grid-item col-6">
-                        <BsDroplet size="3rem" />
-                        <label>{weather.humidity}</label>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4 col-md-6 col-sm-6 col-6 mb-4">
-                <div class="card h-100">
-                  <div class="card-body box_info">
-                    <span class="type-info">Pressure</span>
-                    <div class="row">
-                      <div className="current-weather-details-grid-item col-6">
-                        <BsLifePreserver size="3rem" />
-                        <label>{weather.pressure}</label>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4 col-md-6 col-sm-6 col-6 mb-4">
-                <div class="card h-100">
-                  <div class="card-body box_info">
-                    <span class="type-info">Visibility</span>
-                    <div class="row">
-                      <div className="current-weather-details-grid-item col-8">
-                        <BsFillEyeFill size="3rem" class="col-6" />
-                        <label class="col-6">{weather.visibility}</label>
-                      </div>
-                    </div>
                   </div>
                 </div>
               </div>

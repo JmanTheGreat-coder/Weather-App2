@@ -2,16 +2,13 @@ const API_KEY = '9195141314df48e526b2fbeff8bff2f5';
 
 
 
-
-
-
 const getFormattedWeatherData = async (city, units = "metric") => {
   const URL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=${units}=metric`;
-  
 
   const data = await fetch(URL)
     .then((res) => res.json())
     .then((data) => data);
+
 
 
   const {
@@ -29,9 +26,8 @@ const getFormattedWeatherData = async (city, units = "metric") => {
   console.log(data)
 
 
-
   const { description, icon} = weather[0];
-
+console.log( weather[0])
   return {
     description,
     dt,
@@ -54,4 +50,5 @@ const getFormattedWeatherData = async (city, units = "metric") => {
   };
 };
 
-export { getFormattedWeatherData };
+
+export {getFormattedWeatherData}
