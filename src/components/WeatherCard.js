@@ -1,27 +1,43 @@
 import React from "react";
 
-function WeatherCard({ dt, temp_min, temp_max, main, icon }) {
+function WeatherCard({ dt, temp_min, temp_max, main, icon, units,main_temp }) {
   const date = new Date(dt);
+
+  const convertF = (x) => {
+    return convertC(x) * 1.8 + 32;
+  };
+
+  const convertC = (x) => {
+    return x - 273.15;
+  };
+
   return (
     <div>
-      <div class="card" style="width: 18rem;">
-        <div class="card-body">
+      <div class="card">
+        <div class="card-body text-center">
           <h5 class="card-title">{main}</h5>
-          <img src={`http://openweathermap.org/img/wn/${icon}@2x.png`} />
+          <img
+            src={require(`../resources/icon_${icon}.png`)}
+            class="icon-photo"
+            alt="weatherIcon"
+          />
           <h6 class="card-subtitle mb-2 text-muted">
-            Card subtitle{date.toLocaleTimeString()}
+            {date.toLocaleTimeString()}
           </h6>
           <p class="card-text">{date.toLocaleDateString()}</p>
           <a href="#" class="card-link">
-            Min: {temp_min}
+            Min:
+
           </a>
-          <a href="#" class="card-link">
-            Max: {temp_max}
-          </a>
+          <h2>
+              {units === "metric"
+              ? convertF(main_temp).toFixed(0)
+              : convertC(main_temp).toFixed(0)}
+          </h2>
         </div>
       </div>
     </div>
   );
-};
+}
 
 export default WeatherCard;
