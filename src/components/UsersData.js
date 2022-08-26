@@ -22,8 +22,7 @@ export default function UsersData({city,units}) {
 
   console.log(Users.list)
   return (
-    <div>
-      <h2>React Fetch API Example</h2>   
+    <div>  
       <WeatherList weathers={Users.list} units={units}/>    
     </div>
   )
