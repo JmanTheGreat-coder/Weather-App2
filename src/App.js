@@ -46,21 +46,19 @@ function App() {
   return (
     <div className="App">
       {weather && (
-        <div
-          className={
-            typeof weather.temp != "undefined"
-              ? convertF(weather.temp) > 70
-                ? "app warm"
-                : "app"
-              : "app"
-          }
-        >
+        <div>
           <div
-            class="container"
-            style={{ background: darkMode ? "#1a1919" : "white" }}
+            class="container-fluid"
+            className={
+              typeof weather.temp != "undefined"
+                ? convertF(weather.temp) > 70
+                  ? "app warm"
+                  : "app"
+                : "app"
+            }
           >
             <div class="row">
-              <div class="col-lg-4 col-md-4 col-sm-5 col-5 mb-4 mt-4">
+              <div class="col-lg-4 col-md-4 col-sm-4 col-4 mb-4 mt-4">
                 <div
                   class="card h-100 border-0"
                   style={{ background: darkMode ? "#1a1919" : "white" }}
@@ -80,16 +78,15 @@ function App() {
                     </p>
                     <input
                       onKeyDown={enterKeyPressed}
-                      class="location"
+                      class="location mb-2"
                       type="text"
                       id="fname"
                       name="fname"
-                      placeholder="Enter your location"
                     ></input>
                   </div>
                 </div>
               </div>
-              <div class="col-lg-8 col-md-8 col-sm-7 col-7 mb-4 mt-4">
+              <div class="col-lg-8 col-md-8 col-sm-8 col-8 mb-4 mt-4">
                 <div
                   class="card h-100 border-0"
                   style={{ background: darkMode ? "#1a1919" : "white" }}
@@ -108,60 +105,33 @@ function App() {
                           {units === "metric"
                             ? convertF(weather.temp).toFixed(0)
                             : convertC(weather.temp).toFixed(0)}
+                          °{units === "metric" ? "F" : "C"}
                         </h1>
-                        <p>{units === "metric" ? "F" : "C"}</p>
                         <label>
                           Feels like:
                           {units === "metric"
                             ? convertF(weather.feels_like).toFixed(0)
                             : convertC(weather.feels_like).toFixed(0)}
-                          °
+                          °{units === "metric" ? "F" : "C"}°
                         </label>
                         <br />
                         <label>{weather.description}</label>
                       </div>
                     </div>
+                    <div class="card-body text-center bold">
+                     <a onClick={() => setUnits("imperial")}>°C</a>
+                     {" "}
+                      /<a onClick={() => setUnits("metric")}>°F</a>
+                    </div>
 
                     <div class="text-center">
-                      <h4
-                        class={` ${
-                          units === "imperial" ? "units__active" : ""
-                        }`}
-                        onClick={() => setUnits("imperial")}
-                      >
-                        °C
-                      </h4>
-                      <h4
-                        class={` ${units === " metric" ? "units__active" : ""}`}
-                        onClick={() => setUnits("metric")}
-                      >
-                        °F
-                      </h4>
-                      <div className="toggle-theme">
-                        <input
-                          type="checkbox"
-                          onChange={() => setDarkMode(!darkMode)}
-                          className="checkbox"
-                          id="chk"
-                        />
-                        <label className="label" htmlFor="chk">
-                          <div className="sun">
-                            <BsSun onClick={() => setUnits("imperial")} />
-                          </div>
-                          <div className="moon">
-                            <BsFillMoonStarsFill
-                              onClick={() => setUnits("metric")}
-                            />
-                          </div>
-                          <div className="ball"></div>
-                        </label>
-                      </div>
+                      
+                      
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-
             <UsersData city={city} units={units} />
           </div>
         </div>

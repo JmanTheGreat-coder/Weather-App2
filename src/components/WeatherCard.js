@@ -29,11 +29,14 @@ function WeatherCard({ dt, temp_min, temp_max, main, icon, units,main_temp }) {
             Min:
 
           </a>
-          <h2>
-              {units === "metric"
-              ? convertF(main_temp).toFixed(0)
-              : convertC(main_temp).toFixed(0)}
-          </h2>
+          <div>
+            <h2>
+                {units === "metric"
+                ? convertF(main_temp).toFixed(0)
+                : convertC(main_temp).toFixed(0)}°{units === "metric" ? "F" : "C"}
+            </h2>
+          </div>
+
         </div>
       </div>
     </div>
