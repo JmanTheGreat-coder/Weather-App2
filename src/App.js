@@ -13,11 +13,13 @@ import React, { useEffect, useState } from "react";
 import { getFormattedWeatherData } from "./weatherService.js";
 import "./App.css";
 import UsersData from "./components/UsersData";
+import background, { gradient } from "./background";
 
 function App() {
-  const [city, setCity] = useState("new york");
+  const [city, setCity] = useState("miami");
   const [weather, setWeather] = useState(null);
   const [units, setUnits] = useState("");
+  const [grad, setgrad] = useState(null);
   const [darkMode, setDarkMode] = useState(false);
 
   const convertF = (x) => {
@@ -43,27 +45,25 @@ function App() {
     }
   };
 
+
+  
+ 
+  
+
+
   return (
     <div className="App">
       {weather && (
-        <div>
+        <div class={weather.main}>
           <div
-            class="container-fluid"
-            className={
-              typeof weather.temp != "undefined"
-                ? convertF(weather.temp) > 70
-                  ? "app warm"
-                  : "app"
-                : "app"
-            }
+            class="container-fluid `${weather.main}`"  
+            
           >
             <div class="row">
-              <div class="col-lg-4 col-md-4 col-sm-4 col-4 mb-4 mt-4">
-                <div
-                  class="card h-100 border-0"
-                  style={{ background: darkMode ? "#1a1919" : "white" }}
-                >
+              <div class="col-lg-4 col-md-4 col-sm-4 col-12 mb-4 mt-4">
+                <div class="card h-100 border-0">
                   <div class="card-body ">
+                  <h1>{weather.main}</h1>
                     <h1>{`${weather.name}`}</h1>
                     <h6>{weather.country}</h6>
                     <p>
@@ -78,7 +78,7 @@ function App() {
                     </p>
                     <input
                       onKeyDown={enterKeyPressed}
-                      class="location mb-2"
+                      class="location mb-2 mr-4"
                       type="text"
                       id="fname"
                       name="fname"
@@ -86,16 +86,13 @@ function App() {
                   </div>
                 </div>
               </div>
-              <div class="col-lg-8 col-md-8 col-sm-8 col-8 mb-4 mt-4">
-                <div
-                  class="card h-100 border-0"
-                  style={{ background: darkMode ? "#1a1919" : "white" }}
-                >
+              <div class="col-lg-8 col-md-8 col-sm-8 col-12 mb-4 mt-4">
+                <div class="card h-100 border-0">
                   <div class="card-body">
                     <div class="row">
                       <div class="col-lg-6 col-md-6 col-6">
                         <img
-                          src={require(`./resources/icon_${weather.icon}.png`)}
+                          src={require(`./svg/icon_${weather.icon}.svg`)}
                           class="icon-photo"
                           alt="weatherIcon"
                         />
@@ -119,15 +116,11 @@ function App() {
                       </div>
                     </div>
                     <div class="card-body text-center bold">
-                     <a onClick={() => setUnits("imperial")}>°C</a>
-                     {" "}
-                      /<a onClick={() => setUnits("metric")}>°F</a>
+                      <a onClick={() => setUnits("imperial")}>°C</a> /
+                      <a onClick={() => setUnits("metric")}>°F</a>
                     </div>
 
-                    <div class="text-center">
-                      
-                      
-                    </div>
+                    <div class="text-center"></div>
                   </div>
                 </div>
               </div>

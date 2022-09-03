@@ -16,7 +16,6 @@ const getFormattedWeatherData = async (city, units = "metric") => {
     main: { temp, feels_like, temp_min, temp_max, pressure, humidity},
     wind: { speed },
     sys: { country ,sunset ,sunrise},
-    weather: {main},
     visibility,
     timezone,
     clouds,
@@ -26,11 +25,12 @@ const getFormattedWeatherData = async (city, units = "metric") => {
 
 
 
-  const { description, icon} = weather[0];
-console.log(weather[0])
+  const { description, icon, main} = weather[0];
+console.log(weather.main)
   return {
     description,
     dt,
+    main,
     icon,
     timezone,
     temp,
@@ -43,7 +43,6 @@ console.log(weather[0])
     country,
     visibility,
     clouds,
-    main,
     sunrise,
     sunset,
     name,

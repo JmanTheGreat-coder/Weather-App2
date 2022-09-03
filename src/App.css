@@ -12,17 +12,8 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
-.card-body1 {
-  min-height: 300px;
-  min-width: 300px;
-  margin-right: 5px;
-
-}
 .location{
   margin-bottom: 90px;
-}
-.card-body {
-  margin-bottom: 20px;
 }
 .App-header {
   background-color: #282c34;
@@ -129,6 +120,43 @@
 .app.warm {
   background-image: url('./assets/warm-bg.jpg');
 }
+
+.degree {
+  background:#964646;
+}
+
+.Thunderstorm {
+  background:#281b7a;
+}
+.Rain{
+  background:#ae3d7f;
+}
+.Clear{
+  background:#ffff00;
+}
+.Drizzle{
+  background:#5b3dae;
+}
+.Snow{
+  background:#103e3f;
+}
+.Sleet{
+  background:#23393a;
+}
+.Overcast{
+  background:#7a2d0f;
+}
+.Clouds{
+  background:#757c3c;
+}
+.Sunny{
+  background:#c38a10;
+}
+.Mist{
+  background:#86785b;
+}
+
+
 
 .checkbox:checked + .label .ball {
   transform: translateX(24px);

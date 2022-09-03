@@ -17,7 +17,7 @@ function WeatherCard({ dt, temp_min, temp_max, main, icon, units,main_temp }) {
         <div class="card-body text-center">
           <h5 class="card-title">{main}</h5>
           <img
-            src={require(`../resources/icon_${icon}.png`)}
+            src={require(`../svg/icon_${icon}.svg`)}
             class="icon-photo"
             alt="weatherIcon"
           />
