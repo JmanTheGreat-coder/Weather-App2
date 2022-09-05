@@ -15,22 +15,22 @@ function WeatherCard({ dt, temp_min, temp_max, main, icon, units,main_temp }) {
     <div>
       <div class="card">
         <div class="card-body text-center">
-          <h5 class="card-title">{main}</h5>
+          <h5 class="card-title poppin">{main}</h5>
           <img
             src={require(`../svg/icon_${icon}.svg`)}
-            class="icon-photo"
+            class="icon-photo lato"
             alt="weatherIcon"
           />
-          <h6 class="card-subtitle mb-2 text-muted">
+          <h6 class="card-subtitle mb-2 text-muted lato fs-18">
             {date.toLocaleTimeString()}
           </h6>
-          <p class="card-text">{date.toLocaleDateString()}</p>
-          <a href="#" class="card-link">
+          <p class="card-text lato fs-18">{date.toLocaleDateString()}</p>
+          <p href="#" class="card-link lato fs-18">
             Min:
 
-          </a>
+          </p>
           <div>
-            <h2>
+            <h2 class='poppin'>
                 {units === "metric"
                 ? convertF(main_temp).toFixed(0)
                 : convertC(main_temp).toFixed(0)}°{units === "metric" ? "F" : "C"}

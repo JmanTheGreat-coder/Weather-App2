@@ -1,5 +1,7 @@
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap.min.js";
+import './j_css/j_bootstrap.css'
+
 import { BsSun } from "react-icons/bs";
 import { BsSunset } from "react-icons/bs";
 import { BsSunrise } from "react-icons/bs";
@@ -16,7 +18,7 @@ import UsersData from "./components/UsersData";
 import background, { gradient } from "./background";
 
 function App() {
-  const [city, setCity] = useState("miami");
+  const [city, setCity] = useState("new york");
   const [weather, setWeather] = useState(null);
   const [units, setUnits] = useState("");
   const [grad, setgrad] = useState(null);
@@ -60,16 +62,16 @@ function App() {
             
           >
             <div class="row">
-              <div class="col-lg-4 col-md-4 col-sm-4 col-12 mb-4 mt-4">
+              <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-4 mt-4">
                 <div class="card h-100 border-0">
                   <div class="card-body ">
-                  <h1>{weather.main}</h1>
-                    <h1>{`${weather.name}`}</h1>
-                    <h6>{weather.country}</h6>
-                    <p>
+                  <h1 class='lato fs-4 text-uppercase'>{weather.main}</h1>
+                    <h1 class='poppin'>{`${weather.name}`}</h1>
+                    <h6 class='lato fs-18'>{weather.country}</h6>
+                    <p class='lato fs-18'>
                       {new Date().toLocaleString("en-US", { weekday: "long" })}
                     </p>
-                    <p>
+                    <p class='lato fs-24'>
                       {new Date().toLocaleString("en-US", {
                         hour: "numeric",
                         minute: "numeric",
@@ -86,39 +88,40 @@ function App() {
                   </div>
                 </div>
               </div>
-              <div class="col-lg-8 col-md-8 col-sm-8 col-12 mb-4 mt-4">
+              <div class="col-lg-8 col-md-8 col-sm-12 col-12 mb-4 mt-4">
                 <div class="card h-100 border-0">
                   <div class="card-body">
                     <div class="row">
-                      <div class="col-lg-6 col-md-6 col-6">
+                      <div class="col-lg-6 col-md-6 col-6 border-a m-auto">
                         <img
                           src={require(`./svg/icon_${weather.icon}.svg`)}
-                          class="icon-photo"
+                          class="icon-photo mx-auto d-block pt-2"
                           alt="weatherIcon"
                         />
                       </div>
-                      <div class="col-lg-6 col-md-6  col-6">
-                        <h1>
+                      <div class="col-lg-6 col-md-6 mt-5 col-6 border-b">
+                        <h1 class='poppin fs-72 text-uppercase'>
                           {units === "metric"
                             ? convertF(weather.temp).toFixed(0)
                             : convertC(weather.temp).toFixed(0)}
                           °{units === "metric" ? "F" : "C"}
                         </h1>
-                        <label>
+                        <label class='lato fs-24'>
                           Feels like:
                           {units === "metric"
                             ? convertF(weather.feels_like).toFixed(0)
                             : convertC(weather.feels_like).toFixed(0)}
-                          °{units === "metric" ? "F" : "C"}°
+                          °{units === "metric" ? "F" : "C"}
                         </label>
                         <br />
-                        <label>{weather.description}</label>
+                        <label class='lato fs-24'>{weather.description}</label>
+                    <div class="card-body ps-0 bold border-c ">
+                      <a class='btn btn-outline-dark me-3 lato' onClick={() => setUnits("imperial")}>Celsius</a> 
+                      <a class='btn btn-outline-dark lato' onClick={() => setUnits("metric")}>Fahrenheit </a>
+                    </div>
                       </div>
                     </div>
-                    <div class="card-body text-center bold">
-                      <a onClick={() => setUnits("imperial")}>°C</a> /
-                      <a onClick={() => setUnits("metric")}>°F</a>
-                    </div>
+
 
                     <div class="text-center"></div>
                   </div>

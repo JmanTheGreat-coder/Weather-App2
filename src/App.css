@@ -2,6 +2,50 @@
   width: 100%;
   height: 100%;
 }
+.border-a {
+	border-style: dotted;
+	border-color: red;
+	border-width: 1px;
+}
+
+.border-b {
+	border-style: dotted;
+	border-color: blue;
+	border-width: 1px;
+}
+
+.border-c {
+	border-style: dotted;
+	border-color: green;
+	border-width: 1px;
+}
+.lato{
+    font-family: 'Lato', sans-serif;
+}
+.poppin{
+    font-family: 'Poppins', sans-serif;
+}
+.fs-18{
+  font-size: 18px;
+  font-weight: 300;
+}
+.fs-24{
+  font-size: 24px;
+  font-weight: 300;
+}
+.fs-36{
+  font-size: 36px;
+  font-weight: 300;
+}
+.fs-42{
+  font-size: 42px;
+  font-weight: 600;
+}
+.fs-72{
+  font-size: 72px;
+  font-weight: 600;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -126,34 +170,34 @@
 }
 
 .Thunderstorm {
-  background:#281b7a;
+  background-image: url('./tosend/0-degress.jpg');
 }
 .Rain{
-  background:#ae3d7f;
+  background-image: url('./tosend/10-degress.jpg');
 }
 .Clear{
-  background:#ffff00;
+  background-image: url('./tosend/20-degress.jpg');
 }
 .Drizzle{
-  background:#5b3dae;
+  background-image: url('./tosend/30-degress.jpg');
 }
 .Snow{
-  background:#103e3f;
+  background-image: url('./tosend/40-degress.jpg');
 }
 .Sleet{
-  background:#23393a;
+  background-image: url('./tosend/50-degress.jpg');
 }
 .Overcast{
-  background:#7a2d0f;
+  background-image: url('./tosend/60-degress.jpg');
 }
 .Clouds{
-  background:#757c3c;
+  background-image: url('./tosend/70-degress.jpg');
 }
 .Sunny{
-  background:#c38a10;
+  background-image: url('./tosend/80-degress.jpg');
 }
 .Mist{
-  background:#86785b;
+  background-image: url('./tosend/90-degress.jpg');
 }
 
 
